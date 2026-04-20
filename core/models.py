@@ -7,29 +7,29 @@ from dataclasses import dataclass
 
 @dataclass(frozen=True, slots=True)
 class TrackFeatures:
-    """Static or slowly-varying track characterization used by twin and optimization."""
+    """Feature vector (no geometry). Drives grip, drag scaling, and wear."""
 
+    name: str
     grip: float
     tire_deg: float
-    avg_speed: float
-    corner_density: float
-    straight_ratio: float
+    drag_factor: float
 
 
-@dataclass(frozen=True, slots=True)
+@dataclass(slots=True)
 class CarState:
-    """Vehicle state at a sample instant (telemetry / simulation tick)."""
+    """Minimal vehicle + lap progress state."""
 
-    speed: float
-    tire_wear: float
-    fuel: float
-    lap_time: float
+    speed: float  # m/s
+    position: float  # m along lap
+    lap_time: float  # s into current lap
+    tire_wear: float  # 0.0 → 1.0
+    fuel: float  # fraction 0–1 (% full)
 
 
 @dataclass(frozen=True, slots=True)
 class DriverInput:
-    """Normalized driver commands for a control step."""
+    """Normalized driver commands (steering unused in longitudinal-only physics)."""
 
-    steering: float
-    throttle: float
-    brake: float
+    throttle: float  # 0 → 1
+    brake: float  # 0 → 1
+    steering: float  # -1 → 1

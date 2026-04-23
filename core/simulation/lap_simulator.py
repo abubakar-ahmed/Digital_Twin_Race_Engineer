@@ -36,6 +36,7 @@ def telemetry_row(state: CarState, inp: DriverInput) -> dict[str, float]:
         "position": state.position,
         "throttle": inp.throttle,
         "brake": inp.brake,
+        "steering": inp.steering,
     }
 
 

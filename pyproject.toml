@@ -9,6 +9,10 @@ description = "Driver-in-the-Loop Digital Twin Race Engineer"
 readme = "README.md"
 requires-python = ">=3.10"
 
+[project.optional-dependencies]
+dil = ["pygame>=2.5.0"]
+ui = ["streamlit>=1.28.0"]
+
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["core*", "interfaces*"]

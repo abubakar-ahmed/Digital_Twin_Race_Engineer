@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "steering_min": -0.98,
+  "steering_max": 0.97,
+  "steering_center": 0.02,
+  "throttle_axis_neutral": 0.15,
+  "throttle_axis_full": -0.95,
+  "brake_axis_neutral": 0.12,
+  "brake_axis_full": 0.93
+}
